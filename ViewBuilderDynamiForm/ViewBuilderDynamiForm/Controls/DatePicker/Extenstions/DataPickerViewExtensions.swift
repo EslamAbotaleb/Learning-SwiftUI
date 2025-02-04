@@ -11,10 +11,8 @@ extension DataPickerView {
     @ViewBuilder
     func changeUIDatePicker() -> some View {
         if multiRangePicker {
-//            DateRangePickerView()
-            VStack {
-                CustomizeUIDateRange(manager: manager)
-            }
+            DateRangePickerView()
+          
             .padding()
         } else {
             SingleDatePickerView()
