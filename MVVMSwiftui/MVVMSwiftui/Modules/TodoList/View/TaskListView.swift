@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct TaskListView: View {
-    @EnvironmentObject var viewModel: TaskViewModel
-
+    @EnvironmentObject var viewModel: TaskListViewModel
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack(alignment: .leading) {
                     ForEach(viewModel.tasks) {
                         task in
-                        NavigationLink(destination: CRUDTaskView()) {
+                        NavigationLink(destination: CRUDTaskView().environmentObject(viewModel.navigateToAddTaskView(isUpdate: true, task: task))) {
                             TaskRow()
+                                .environmentObject(viewModel)
                                 .environment(\.task, task)
                         }
                         .simultaneousGesture(TapGesture().onEnded {
@@ -31,7 +31,7 @@ struct TaskListView: View {
             .navigationTitle("Tasks")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: CRUDTaskView()) {
+                    NavigationLink(destination: CRUDTaskView().environmentObject(viewModel.navigateToAddTaskView(isUpdate: false))) {
                         Image(systemName: "plus")
                             .font(.title)
                     }
@@ -45,7 +45,7 @@ struct TaskListView: View {
     }
 }
 
-#Preview {
-    TaskListView()
-        .environmentObject(TaskViewModel())
-}
+//#Preview {
+//    TaskListView()
+//        .environmentObject(TaskViewModel())
+//}

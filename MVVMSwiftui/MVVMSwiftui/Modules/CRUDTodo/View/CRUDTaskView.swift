@@ -1,5 +1,5 @@
 //
-//  AddTaskView.swift
+//  CRUDTaskView.swift
 //  MVVMSwiftui
 //
 //  Created by Eslam on 04/02/2025.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CRUDTaskView: View {
-    @EnvironmentObject var viewModel: TaskViewModel
+    @EnvironmentObject var viewModel: CRUDTodoViewModel
     @State private var titleTask: String = ""  // State to hold the new task title
     @Environment(\.dismiss) var dismissPage
     var body: some View {
@@ -55,7 +55,7 @@ struct CRUDTaskView: View {
     }
 }
 
-#Preview {
-    CRUDTaskView()
-        .environmentObject(TaskViewModel())
-}
+//#Preview {
+//    CRUDTaskView()
+//        .environmentObject(TaskViewModel())
+//}

@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel: TaskViewModel
+//    @EnvironmentObject var viewModel: TaskListViewModel
+    @EnvironmentObject var viewModel: TodoService
     var body: some View {
         TaskListView()
-        .environment(\.task, viewModel.tasks.first)
+            .environmentObject(TaskListViewModel(taskService: viewModel))
+//        .environment(\.task, viewModel.tasks.first)
     }
 }
 
-#Preview {
-    ContentView()
-        .environmentObject(TaskViewModel())
-
-}
+//#Preview {
+//    ContentView()
+//        .environmentObject(TaskListViewModel(taskService: TodoService()))
+//
+//}

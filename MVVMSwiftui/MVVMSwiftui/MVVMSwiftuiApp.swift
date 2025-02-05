@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct MVVMSwiftuiApp: App {
-    @StateObject var viewModel = TaskViewModel()
+    @StateObject var viewModel = TodoService()
+     var todoService = TodoService()
     var body: some Scene {
         WindowGroup {
             ContentView()

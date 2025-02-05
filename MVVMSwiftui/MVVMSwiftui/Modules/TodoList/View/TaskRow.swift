@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TaskRow: View {
     @Environment(\.task) var task: Task? // Access the custom task from the environment
-    @EnvironmentObject var viewModel: TaskViewModel
+    @EnvironmentObject var viewModel: TaskListViewModel
 
     var body: some View {
         HStack {
@@ -45,8 +45,7 @@ struct TaskRow: View {
     }
 }
 
-
-#Preview {
-    TaskRow()
-          
-}
+//
+//#Preview {
+//    TaskRow()
+//}
