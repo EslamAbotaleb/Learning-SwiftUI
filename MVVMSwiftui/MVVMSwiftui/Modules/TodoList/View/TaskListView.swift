@@ -17,7 +17,6 @@ struct TaskListView: View {
                         task in
                         NavigationLink(destination: CRUDTaskView().environmentObject(viewModel.navigateToAddTaskView(isUpdate: true, task: task))) {
                             TaskRow()
-                                .environmentObject(viewModel)
                                 .environment(\.task, task)
                         }
                         .simultaneousGesture(TapGesture().onEnded {
