@@ -9,8 +9,9 @@ import SwiftUI
 
 struct CRUDTaskView: View {
     @EnvironmentObject var viewModel: CRUDTodoViewModel
-    @State private var titleTask: String = ""  // State to hold the new task title
     @Environment(\.dismiss) var dismissPage
+    @State private var titleTask: String = ""  // State to hold the new task title
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -24,14 +25,14 @@ struct CRUDTaskView: View {
                             viewModel.updateTask(task: task, newTitle: titleTask)
                             dismissPage()
                         }
-                        .padding()
+                        .padding(.trailing, 10)
                         .buttonStyle(PrimaryButtonStyle(changeValueText: titleTask == "" ? true : false))
                         Button("Delete Task") {
                             viewModel.deleteTaskById(id: task.id)
                             dismissPage()
                         }
                         .buttonStyle(PrimaryButtonStyle(changeValueText: true))
-                    }
+                    }.padding(8)
                 } else {
                     Button("Add Task") {
                         if !titleTask.isEmpty {
@@ -54,8 +55,7 @@ struct CRUDTaskView: View {
         }
     }
 }
-
-//#Preview {
-//    CRUDTaskView()
-//        .environmentObject(TaskViewModel())
-//}
+#Preview {
+    CRUDTaskView()
+        .environmentObject(CRUDTodoViewModel(taskService: TodoService()))
+}
