@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AA1F6B2D2D54B31E00EFE592 /* MacroTut in Frameworks */ = {isa = PBXBuildFile; productRef = AA1F6B2C2D54B31E00EFE592 /* MacroTut */; };
 		AA1F6B2F2D54B31E00EFE592 /* MacroTutClient in Frameworks */ = {isa = PBXBuildFile; productRef = AA1F6B2E2D54B31E00EFE592 /* MacroTutClient */; };
+		AAB4ACD72D54EBC300BBBD1D /* MacroTut in Frameworks */ = {isa = PBXBuildFile; productRef = AAB4ACD62D54EBC300BBBD1D /* MacroTut */; };
+		AAB4ACD92D54EBC300BBBD1D /* MacroTutClient in Frameworks */ = {isa = PBXBuildFile; productRef = AAB4ACD82D54EBC300BBBD1D /* MacroTutClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAB4ACD92D54EBC300BBBD1D /* MacroTutClient in Frameworks */,
+				AAB4ACD72D54EBC300BBBD1D /* MacroTut in Frameworks */,
 				AA1F6B2F2D54B31E00EFE592 /* MacroTutClient in Frameworks */,
 				AA1F6B2D2D54B31E00EFE592 /* MacroTut in Frameworks */,
 			);
@@ -74,6 +78,8 @@
 			packageProductDependencies = (
 				AA1F6B2C2D54B31E00EFE592 /* MacroTut */,
 				AA1F6B2E2D54B31E00EFE592 /* MacroTutClient */,
+				AAB4ACD62D54EBC300BBBD1D /* MacroTut */,
+				AAB4ACD82D54EBC300BBBD1D /* MacroTutClient */,
 			);
 			productName = MacroTutoiral;
 			productReference = AA1F6B172D54A13500EFE592 /* MacroTutoiral.app */;
@@ -104,7 +110,7 @@
 			mainGroup = AA1F6B0E2D54A13400EFE592;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				AA1F6B2B2D54B31E00EFE592 /* XCLocalSwiftPackageReference "../MacroTut" */,
+				AAB4ACD52D54EBC300BBBD1D /* XCLocalSwiftPackageReference "../../xcode Projects/MacroTut" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AA1F6B182D54A13500EFE592 /* Products */;
@@ -338,9 +344,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		AA1F6B2B2D54B31E00EFE592 /* XCLocalSwiftPackageReference "../MacroTut" */ = {
+		AAB4ACD52D54EBC300BBBD1D /* XCLocalSwiftPackageReference "../../xcode Projects/MacroTut" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../MacroTut;
+			relativePath = "../../xcode Projects/MacroTut";
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -350,6 +356,14 @@
 			productName = MacroTut;
 		};
 		AA1F6B2E2D54B31E00EFE592 /* MacroTutClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MacroTutClient;
+		};
+		AAB4ACD62D54EBC300BBBD1D /* MacroTut */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MacroTut;
+		};
+		AAB4ACD82D54EBC300BBBD1D /* MacroTutClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MacroTutClient;
 		};
