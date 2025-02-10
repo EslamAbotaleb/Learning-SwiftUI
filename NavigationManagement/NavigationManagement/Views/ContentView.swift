@@ -7,31 +7,10 @@
 
 import SwiftUI
 
-/*
- struct ContentView: View {
- //    @StateObject private var router: Router<RoutesNames> = .init()
-     @StateObject private var viewModel = RouterViewModel()
-     var body: some View {
-         RoutingView(stack: $viewModel.router.stack) {
-             List {
-                 Button("Home") {
-                     viewModel.router.navigate(to: .home)
-                 }
-                 Button("Profile") {
-                     viewModel.router.navigate(to: .profile(userID: UUID()))
-                 }
-                 Button("Settings") {
-                     viewModel.router.navigate(to: .settings)
-                 }
-             }
-         }
-         .environmentObject(viewModel)
-     }
- }
- */
 struct ContentView: View {
-    @StateObject private var router: Router<RoutesNames> = .init()
+    @StateObject private var router: RouterViewModel<RoutesNames> = .init()
     var body: some View {
+        /*
         RoutingView(stack: $router.stack) {
             List {
                 Button("Home") {
@@ -45,6 +24,10 @@ struct ContentView: View {
                 }
             }
         }
+         */
+        RoutingView(stack: $router.stack, root: {
+            CategoryView()
+        }, navigationTitle: "Catégories")
         .environmentObject(router)
     }
 }

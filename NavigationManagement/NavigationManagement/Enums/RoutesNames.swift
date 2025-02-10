@@ -7,19 +7,19 @@
 
 import SwiftUI
 enum RoutesNames: Routable {
-    case home
-    case profile(userID: UUID)
-    case settings
+    case categories
+    case products(String) // String is the category name
+    case productDetail(Product)
 
     @ViewBuilder
     var body: some View {
         switch self {
-            case .home:
-                HomeView()
-            case .profile(let userID):
-                ProfileView(userID: userID)
-            case .settings:
-                SettingsView()
+            case .categories:
+                CategoryView()
+            case .products(let category):
+                ProductView(category: category)
+            case .productDetail(let product):
+                ProductDetailView(product: product)
         }
     }
 }
