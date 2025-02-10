@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @EnvironmentObject var router: Router<RoutesNames>
+    @EnvironmentObject var router: RouterViewModel<RoutesNames>
     let userID: UUID
 
     var body: some View {
