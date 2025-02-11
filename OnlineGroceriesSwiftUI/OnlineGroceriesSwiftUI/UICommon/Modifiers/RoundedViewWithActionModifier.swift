@@ -9,6 +9,7 @@ import SwiftUI
 
 //MARK: - Sample custom view for any view not button just contain (title & action)
 struct RoundedViewOptionalActionModifier: ViewModifier {
+    var backgroundColor: Color = .primaryApp
     var minHeight: CGFloat = 60
     var maxHeight: CGFloat = 60
     var didTap: (()->())?
@@ -18,7 +19,7 @@ struct RoundedViewOptionalActionModifier: ViewModifier {
             .foregroundStyle(.white)
             .multilineTextAlignment(.center)
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: minHeight, maxHeight: maxHeight, alignment: .center)
-            .background(Color.primaryApp)
+            .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 20))
         if let action = didTap {
             baseView.onTapGesture {
@@ -31,7 +32,7 @@ struct RoundedViewOptionalActionModifier: ViewModifier {
 }
 
 extension View {
-    func roundViewWithAction(minHeight: CGFloat, maxHeight: CGFloat, didTap: (() ->())? = nil) -> some View {
-        self.modifier(RoundedViewOptionalActionModifier(minHeight: minHeight, maxHeight: maxHeight, didTap: didTap))
+    func roundViewWithAction(backgroundColor: Color, minHeight: CGFloat, maxHeight: CGFloat, didTap: (() ->())? = nil) -> some View {
+        self.modifier(RoundedViewOptionalActionModifier(backgroundColor: backgroundColor,minHeight: minHeight, maxHeight: maxHeight, didTap: didTap))
     }
 }

@@ -32,12 +32,8 @@ struct WelcomeView: View {
                     .foregroundStyle(.white.opacity(0.7))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 30)
-//                NavigationLink(destination: SignInView()) {
-//                    Text("Get Started")
-//                        .roundViewWithAction(minHeight: 60, maxHeight: 60)
-//                }
                 Text("Get Started")
-                    .roundViewWithAction(minHeight: 60, maxHeight: 60) {
+                    .roundViewWithAction(backgroundColor: .primaryApp, minHeight: 60, maxHeight: 60) {
                         router.navigate(to: .signIn)
                     }
                 Spacer()
