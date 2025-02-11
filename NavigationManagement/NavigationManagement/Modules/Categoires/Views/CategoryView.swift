@@ -19,15 +19,9 @@ struct CategoryView: View {
                 router.navigate(to: .products(category))
             } label: {
                 Text(category)
-                    .fontWeight(.bold)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color(light: Color.green.opacity(0.9), dark: Color.blue))
-                    .foregroundStyle(.white)
-                    .cornerRadius(10)
             }
             .listRowSeparator(.hidden)
-            .buttonStyle(PlainButtonStyle())
+            .buttonStyle(.primary)
         }
         .listStyle(.plain)
         .listStyle(PlainListStyle())

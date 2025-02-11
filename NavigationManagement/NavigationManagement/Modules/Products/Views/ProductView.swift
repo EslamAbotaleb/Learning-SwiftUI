@@ -27,21 +27,10 @@ struct ProductView: View {
                     Text("$\(product.price, specifier: "%.2f")")
                         .font(.subheadline)
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color(light: Color.green.opacity(0.9), dark: Color.blue))
-                .foregroundStyle(.white)
-                /*
-                 .modifier(ColorSchemeViewModifier(
-                 lightBackgroundColor: Color.green.opacity(0.2),
-                 darkBackgroundColor: Color.blue.opacity(0.8),
-                 lightForegroundColor: .black,
-                 darkForegroundColor: .white
-                 ))
-                 */
+                .padding(.horizontal, 16)
             }
             .listRowSeparator(.hidden)
-            .buttonStyle(PlainButtonStyle())
+            .buttonStyle(.primary)
         }
         .listStyle(.plain)
         .listStyle(PlainListStyle())
