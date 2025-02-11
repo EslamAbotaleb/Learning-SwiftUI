@@ -16,7 +16,6 @@ struct WelcomeView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             VStack {
                 Spacer()
-
                 Image(.appLogo)
                     .resizable()
                     .scaledToFit()
@@ -32,10 +31,10 @@ struct WelcomeView: View {
                     .foregroundStyle(.white.opacity(0.7))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 30)
-                Text("Get Started")
-                    .roundViewWithAction(minHeight: 60, maxHeight: 60) {
-                        print("tapped!!!")
-                    }
+                NavigationLink(destination: SignInView()) {
+                    Text("Get Started")
+                        .roundViewWithAction(minHeight: 60, maxHeight: 60)
+                }
                 Spacer()
                     .frame(height: 80)
             }
