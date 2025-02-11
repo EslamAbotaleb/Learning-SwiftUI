@@ -12,7 +12,9 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             if splashViewModel.isActive {
-                WelcomeView()
+                NavigationStack {
+                    WelcomeView()
+                }
             } else {
                 Image(.splash)
                     .resizable()
