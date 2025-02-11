@@ -10,6 +10,7 @@ import SwiftUI
 struct CategoryView: View {
     @StateObject private var viewModel = CategoryViewModel()
     @EnvironmentObject var router: RouterViewModel<RoutesNames>
+
     var body: some View {
         List(viewModel.categories, id: \.self) {
             category in

@@ -10,24 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var router: RouterViewModel<RoutesNames> = .init()
     var body: some View {
-        /*
-        RoutingView(stack: $router.stack) {
-            List {
-                Button("Home") {
-                   router.navigate(to: .home)
-                }
-                Button("Profile") {
-                   router.navigate(to: .profile(userID: UUID()))
-                }
-                Button("Settings") {
-                    router.navigate(to: .settings)
-                }
-            }
-        }
-         */
         RoutingView(stack: $router.stack, root: {
             CategoryView()
-        }, navigationTitle: "Catégories")
+        }, navigationTitle: "Categories")
         .environmentObject(router)
     }
 }
