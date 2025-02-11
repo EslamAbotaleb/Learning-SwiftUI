@@ -23,7 +23,7 @@ struct CategoryView: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.blue.opacity(0.8))
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .cornerRadius(10)
             }
             .listRowSeparator(.hidden)

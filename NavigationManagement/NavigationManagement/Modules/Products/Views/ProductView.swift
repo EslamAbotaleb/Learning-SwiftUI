@@ -28,8 +28,12 @@ struct ProductView: View {
                         .font(.subheadline)
                 }
                 .padding()
-                .background(Color.green.opacity(0.2), in: RoundedRectangle(cornerRadius: 8))
-                .foregroundStyle(.black)
+                .modifier(ColorSchemeViewModifier(
+                    lightBackgroundColor: Color.green.opacity(0.2),
+                    darkBackgroundColor: Color.blue.opacity(0.8),
+                    lightForegroundColor: .black,
+                    darkForegroundColor: .white
+                ))
                 .frame(maxWidth: .infinity)
             }
             .listRowSeparator(.hidden)
@@ -39,4 +43,7 @@ struct ProductView: View {
         .listStyle(PlainListStyle())
         .navigationTitle("Products")
     }
+}
+#Preview {
+    ProductView(category: "Electronics")
 }
