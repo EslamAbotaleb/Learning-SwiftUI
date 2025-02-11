@@ -30,7 +30,7 @@ struct ProductView: View {
                 .padding(.horizontal, 16)
             }
             .listRowSeparator(.hidden)
-            .buttonStyle(.primary)
+            .buttonStyle(.secondary)
         }
         .listStyle(.plain)
         .listStyle(PlainListStyle())
