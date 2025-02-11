@@ -25,6 +25,7 @@ struct ProductDetailView: View {
         }
         .padding()
         .background(Color(light: Color.green.opacity(0.9), dark: Color.blue))
+        .foregroundStyle(.white)
         .toolbar {  // Add toolbar items
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {

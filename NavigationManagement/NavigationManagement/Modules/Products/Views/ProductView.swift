@@ -30,6 +30,7 @@ struct ProductView: View {
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(Color(light: Color.green.opacity(0.9), dark: Color.blue))
+                .foregroundStyle(.white)
                 /*
                  .modifier(ColorSchemeViewModifier(
                  lightBackgroundColor: Color.green.opacity(0.2),
