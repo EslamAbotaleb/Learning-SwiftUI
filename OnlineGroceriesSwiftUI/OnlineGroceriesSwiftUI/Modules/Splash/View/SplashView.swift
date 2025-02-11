@@ -9,12 +9,14 @@ import SwiftUI
 
 struct SplashView: View {
     @StateObject var splashViewModel: SplashViewModel = SplashViewModel(isActive: false)
+    @StateObject private var router: RouterViewModel<RoutesNames> = .init()
     var body: some View {
         ZStack {
             if splashViewModel.isActive {
-                NavigationStack {
+                RoutingView(stack: $router.stack, root: {
                     WelcomeView()
-                }
+                }, navigationTitle: "")
+
             } else {
                 Image(.splash)
                     .resizable()
@@ -29,5 +31,6 @@ struct SplashView: View {
                 }
             }
         }
+        .environmentObject(router)
     }
 }
