@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductView: View {
     @EnvironmentObject var router: RouterViewModel<RoutesNames>
     @StateObject private var viewModel: ProductViewModel
-
+    
     init(category: String) {
         _viewModel = StateObject(wrappedValue: ProductViewModel(category: category))
     }
@@ -28,13 +28,16 @@ struct ProductView: View {
                         .font(.subheadline)
                 }
                 .padding()
-                .modifier(ColorSchemeViewModifier(
-                    lightBackgroundColor: Color.green.opacity(0.2),
-                    darkBackgroundColor: Color.blue.opacity(0.8),
-                    lightForegroundColor: .black,
-                    darkForegroundColor: .white
-                ))
                 .frame(maxWidth: .infinity)
+                .background(Color(light: Color.green.opacity(0.5), dark: Color.blue))
+                /*
+                 .modifier(ColorSchemeViewModifier(
+                 lightBackgroundColor: Color.green.opacity(0.2),
+                 darkBackgroundColor: Color.blue.opacity(0.8),
+                 lightForegroundColor: .black,
+                 darkForegroundColor: .white
+                 ))
+                 */
             }
             .listRowSeparator(.hidden)
             .buttonStyle(PlainButtonStyle())

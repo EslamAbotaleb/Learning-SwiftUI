@@ -15,12 +15,15 @@ struct ContentView: View {
             CategoryView()
         }, navigationTitle: "Categories")
         .environmentObject(router)
-        .modifier(ColorSchemeViewModifier(
-            lightBackgroundColor: Color.white,
-            darkBackgroundColor: Color.black,
-            lightForegroundColor: .black,
-            darkForegroundColor: .white
-        ))
+        .background(Color(light: Color.red, dark: Color.blue))
+        /*
+         .modifier(ColorSchemeViewModifier(
+         lightBackgroundColor: Color.white,
+         darkBackgroundColor: Color.black,
+         lightForegroundColor: .black,
+         darkForegroundColor: .white
+         ))
+         */
     }
 }
 #Preview {
