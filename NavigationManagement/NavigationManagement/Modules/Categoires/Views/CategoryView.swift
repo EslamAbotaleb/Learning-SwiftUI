@@ -22,7 +22,7 @@ struct CategoryView: View {
                     .fontWeight(.bold)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue.opacity(0.8))
+                    .background(Color(light: Color.green.opacity(0.9), dark: Color.blue))
                     .foregroundStyle(.white)
                     .cornerRadius(10)
             }

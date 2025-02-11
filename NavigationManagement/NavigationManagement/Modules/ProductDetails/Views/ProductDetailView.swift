@@ -21,9 +21,10 @@ struct ProductDetailView: View {
                 .bold()
             Text("$\(viewModel.product.price, specifier: "%.2f")")
                 .font(.title)
-                .padding(.top)
+                .padding(.all)
         }
         .padding()
+        .background(Color(light: Color.green.opacity(0.9), dark: Color.blue))
         .toolbar {  // Add toolbar items
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {

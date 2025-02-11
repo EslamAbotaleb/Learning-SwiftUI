@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductView: View {
     @EnvironmentObject var router: RouterViewModel<RoutesNames>
     @StateObject private var viewModel: ProductViewModel
-    
+
     init(category: String) {
         _viewModel = StateObject(wrappedValue: ProductViewModel(category: category))
     }
@@ -29,7 +29,7 @@ struct ProductView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(Color(light: Color.green.opacity(0.5), dark: Color.blue))
+                .background(Color(light: Color.green.opacity(0.9), dark: Color.blue))
                 /*
                  .modifier(ColorSchemeViewModifier(
                  lightBackgroundColor: Color.green.opacity(0.2),

@@ -15,7 +15,7 @@ struct ContentView: View {
             CategoryView()
         }, navigationTitle: "Categories")
         .environmentObject(router)
-        .background(Color(light: Color.red, dark: Color.blue))
+
         /*
          .modifier(ColorSchemeViewModifier(
          lightBackgroundColor: Color.white,
