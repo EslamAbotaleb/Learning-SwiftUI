@@ -55,12 +55,11 @@ import Combine
 final class CoinDataService: Sendable {
     @Published  var allCoins: [CoinModel] = []
     func fetchCoins() async throws {
-        guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&oder=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h") else {
-            return
+        if let coins: [CoinModel] = try await NetworkingManager.download(urlValue: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&oder=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h") {
+            self.allCoins = coins
+        } else {
+            print("Failed to decode coins data.")
         }
-        let (data,_) = try await URLSession.shared.data(from: url)
-        let decodedCoins = try JSONDecoder().decode([CoinModel].self, from: data)
-        self.allCoins = decodedCoins
     }
 }
 
