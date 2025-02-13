@@ -49,8 +49,7 @@ import Combine
  }
  */
 //MARK: - With Async & MainActor
-
-
+/*
 @MainActor
 final class CoinDataService: Sendable {
     @Published  var allCoins: [CoinModel] = []
@@ -62,4 +61,5 @@ final class CoinDataService: Sendable {
         }
     }
 }
+ */
 

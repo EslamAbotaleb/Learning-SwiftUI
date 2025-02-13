@@ -33,6 +33,9 @@ struct HomeView: View {
                 Spacer(minLength: 0)
             }
         }
+        .task {
+            await vm.fetchMarketsCoins()
+        }
     }
 }
 

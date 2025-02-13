@@ -34,6 +34,22 @@ import Foundation
 class HomeViewModel: ObservableObject {
     @Published var allCoins: [CoinModel] = []
     @Published var portfolioCoins: [CoinModel] = []
+    @Published var error: NetworkError?
+    private let networkManager: NetworkManaging
+    init(networkManager: NetworkManaging = NetworkManager.shared) {
+        self.networkManager = networkManager
+    }
+    func fetchMarketsCoins() async {
+        do {
+            self.allCoins = try await networkManager.fetch(from: MarketsEndPoint())
+        } catch let error as NetworkError {
+            self.error = error
+            print("the error is:\(error)")
+        } catch {
+            self.error = .unknownError(0)
+        }
+    }
+    /*
     private let dataService = CoinDataService()
     init() {
         // Call the async fetch function from the CoinDataService
@@ -51,4 +67,5 @@ class HomeViewModel: ObservableObject {
             print("Error fetching coins: \(error.localizedDescription)")
         }
     }
+     */
 }
