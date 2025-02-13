@@ -44,7 +44,7 @@ class HomeViewModel: ObservableObject {
             self.allCoins = try await networkManager.fetch(from: MarketsEndPoint())
         } catch let error as NetworkError {
             self.error = error
-            print("the error is:\(error)")
+            print("\(self.error?.errorDescription ?? "")")
         } catch {
             self.error = .unknownError(0)
         }

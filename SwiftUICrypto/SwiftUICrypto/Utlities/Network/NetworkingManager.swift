@@ -45,9 +45,7 @@ final class NetworkManager: NetworkManaging {
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.invalidResponse
         }
-
         try validateResponse(httpResponse)
-
         do {
             let decoder = JSONDecoder()
             return try decoder.decode(T.self, from: data)
