@@ -31,7 +31,7 @@ struct RoutingView<Root: View, Routes: Routable>: View {
                 .navigationBarHidden(navigationBarHidden)  // Dynamically hide/show navigation bar
                 .navigationDestination(for: Routes.self) { view in
                     view
-            }
+                }
         }
     }
 }
