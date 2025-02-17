@@ -27,7 +27,6 @@ struct ProfileFixView: View {
                 }
 
                 .frame(width: geometry.size.width * 0.5, height: geometry.size.width * 0.5)
-
                 /*
                  profileImage
                  .resizable()
