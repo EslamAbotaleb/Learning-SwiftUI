@@ -12,8 +12,8 @@ struct DebuggingApp: App {
     var body: some Scene {
         WindowGroup {
 //            ProfileFixView(profileImage: Image(.apple), userName: "Eslam", userDescription: "IOS")
-//            VerticalIssueView()
-            VerticalFixView()
+            VerticalIssueView()
+//            VerticalFixView()
         }
     }
 }
