@@ -18,6 +18,12 @@ struct ExampleFourBindingFix: View {
             }
         }
     }
+    // This function now returns an async result
+      func fetchDataFromNetwork() async -> Int {
+          // Simulating network delay
+          try? await Task.sleep(nanoseconds: 2_000_000_000)
+          return 42
+      }
 }
 struct ChildExampleFourBindingFix: View {
     @Binding var count: Int
