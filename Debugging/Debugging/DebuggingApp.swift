@@ -14,7 +14,7 @@ struct DebuggingApp: App {
 //            ProfileFixView(profileImage: Image(.apple), userName: "Eslam", userDescription: "IOS")
 //            VerticalIssueView()
 //            VerticalFixView()
-            TimeCounterFixView()
+            ExampleFourBindingFix()
         }
     }
 }
