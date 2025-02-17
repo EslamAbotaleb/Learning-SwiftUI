@@ -14,6 +14,7 @@ struct DebuggingApp: App {
 //            ProfileFixView(profileImage: Image(.apple), userName: "Eslam", userDescription: "IOS")
 //            VerticalIssueView()
 //            VerticalFixView()
+//            RedrawView(score: 10)
             FullExampleDebuggingFixView()
         }
     }
