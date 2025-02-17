@@ -8,33 +8,16 @@
 import SwiftUI
 
 struct CoinImageView: View {
-    @StateObject  var viewModel: CoinImageViewModel
+    @StateObject var viewModel: CoinImageViewModel
 
     init(coin: CoinModel) {
         _viewModel = StateObject(wrappedValue: CoinImageViewModel(coin: coin))
     }
 
-
     var body: some View {
-        ZStack {
-            if let image = viewModel.coin?.image{
-                //                Image(uiImage: image)
-                //                    .resizable()
-                //                    .scaledToFit()
-                ImageURLView(url: URL(string: image)!)
-            }
-                //                    .resizable()
-
-//            } else if viewModel.isLoading {
-//                ProgressView()
-//            } else {
-//                Image(systemName: "questionmark")
-//                    .foregroundStyle(Color.secondaryText)
-//            }
+        if let image = viewModel.coin?.image{
+            ImageURLView(url: URL(string: image)!)
         }
     }
 }
 
-//#Preview {
-//    CoinImageView()
-//}
