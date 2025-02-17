@@ -23,31 +23,35 @@ struct FullExampleDebuggingFixView: View {
                 ForEach(items) {
                     item in
                     NavigationLink(destination: DetailsPageView(item: item)) {
-
-                        ItemRow(item: item)
-                            .onTapGesture {
-                                self.selectedItem = item
-                                withAnimation(.easeInOut(duration: 0.3)) {
-                                    self.isLoading.toggle()
-                                }
+                        ZStack {
+                            ItemRow(item: item)
+                                .listRowSeparator(.hidden)
+                        }
+                        .listStyle(PlainListStyle())
+                        .onTapGesture {
+                            self.selectedItem = item
+                            let _ = Self._printChanges()
+                            withAnimation(.easeInOut(duration: 0.3)) {
+                                self.isLoading.toggle()
                             }
+                        }
                     }
                 }
             }
-            .listStyle(PlainListStyle())
-            .onAppear {
-                Task {
-                    await loadData()
+                .listStyle(PlainListStyle())
+                .onAppear {
+                    Task {
+                        await loadData()
+                    }
                 }
             }
         }
-    }
 
-    //MARK: - Simulate some network delay
-    func loadData() async {
-        try? await Task.sleep(nanoseconds: 2 * 1_000_000_000) // 2 seconds delay
-        await MainActor.run {
-            self.items.append(Item(name: "New Item"))
+        //MARK: - Simulate some network delay
+        func loadData() async {
+            try? await Task.sleep(nanoseconds: 2 * 1_000_000_000) // 2 seconds delay
+            await MainActor.run {
+                self.items.append(Item(name: "New Item"))
+            }
         }
     }
-}

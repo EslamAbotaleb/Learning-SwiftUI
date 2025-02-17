@@ -11,6 +11,7 @@ struct DetailsPageIssueView: View {
     let item: String
 
     var body: some View {
+
         VStack {
             Text("Detail View for \(item)")
                 .font(.largeTitle)

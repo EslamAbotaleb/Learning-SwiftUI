@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ItemRow: View {
     let item: Item
+
     var body: some View {
+        let _ = Self._printChanges()
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.blue)
