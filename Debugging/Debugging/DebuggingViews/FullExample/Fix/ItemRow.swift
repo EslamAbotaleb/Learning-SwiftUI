@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ItemRow: View {
     let item: Item
-
     var body: some View {
         let _ = Self._printChanges()
         ZStack {
@@ -22,13 +21,5 @@ struct ItemRow: View {
                 .padding(5)
         }
         .padding()
-//
-//        Text(item)
-//            .padding()
-//            .background(Color.blue)
-//            .cornerRadius(8)
-//            .foregroundColor(.white)
-//            .shadow(color: .gray, radius: 10, x: 0, y: 5)
-//            .padding(5)
     }
 }

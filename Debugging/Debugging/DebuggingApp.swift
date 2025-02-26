@@ -15,7 +15,7 @@ struct DebuggingApp: App {
 //            VerticalIssueView()
 //            VerticalFixView()
 //            RedrawView(score: 10)
-            FullExampleDebuggingFixView()
+            StateIssueExampleTwo()
         }
     }
 }
