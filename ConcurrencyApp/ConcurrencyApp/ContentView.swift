@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let source = RemoteFile(url: URL(string: "https://hws.dev/inbox.json")!, type: [Message].self)
     @State private var messages = [Message]()
-    
+
     init() {
         let _ = ModernApproach()
     }
@@ -18,9 +18,10 @@ struct ContentView: View {
         NavigationStack {
             List(messages) { message in
                 VStack(alignment: .leading) {
-                    Text(message.user)
-                        .font(.headline)
-                    Text(message.text)
+                    Text(message.message)
+//                    Text(message.user)
+//                        .font(.headline)
+//                    Text(message.text)
                 }
             }
             .navigationTitle("Inbox")
@@ -41,7 +42,7 @@ struct ContentView: View {
          }
          }
          .padding()
-         
+
          ScrollView {
          Text(sourceCode)
          }
@@ -57,13 +58,27 @@ struct ContentView: View {
      sourceCode = "Failed to fetch \(site)"
      }
      }*/
+    func loadData() async {
+        async let (userData, _) = URLSession.shared.data(from: URL(string: "https://hws.dev/user-24601.json")!)
+        async let (messageData, _) = URLSession.shared.data(from: URL(string: "https://hws.dev/user-messages.json")!)
+        do {
+            let decoder = JSONDecoder()
+            let user = try decoder.decode(User.self, from: await userData)
+            let messages = try decoder.decode([Message].self, from: await messageData)
+            self.messages = messages
+            print("User \(user.name) has \(messages.count) message(s).")
+        } catch  {
+            print("Sorry, there was a network problem")
+        }
+    }
     func refresh() {
         Task {
-            do {
-                messages = try await source.contents ?? []
-            } catch {
-                print("Message update failed.")
-            }
+            await loadData()
+//            do {
+//                messages = try await source.contents ?? []
+//            } catch {
+//                print("Message update failed.")
+//            }
         }
     }
 }

@@ -27,6 +27,7 @@ class ModernApproach {
                 print("Download failed.")
             }
             await processWeather()
+            await loadData()
         }
         // Call the synchronous function
         syncFunction()
@@ -104,6 +105,18 @@ class ModernApproach {
         let (data, _) = try await URLSession.shared.data(from: url)
         return data
     }
+    func loadData() async {
+        async let (userData, _) = URLSession.shared.data(from: URL(string: "https://hws.dev/user-24601.json")!)
+        async let (messageData, _) = URLSession.shared.data(from: URL(string: "https://hws.dev/user-messages.json")!)
+        do {
+            let decoder = JSONDecoder()
+            let user = try decoder.decode(User.self, from: await userData)
+            let messages = try decoder.decode([Message].self, from: await messageData)
+            print("User \(user.name) has \(messages.count) message(s).")
+        } catch  {
+            print("Sorry, there was a network problem")
+        }
+    }
 }
 
 extension URLSession {
@@ -123,8 +136,4 @@ struct RemoteFile<T: Decodable> {
         }
     }
 }
-struct Message: Decodable, Identifiable {
-    let id: Int
-    var user: String
-    var text: String
-}
+
