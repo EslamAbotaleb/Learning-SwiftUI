@@ -28,6 +28,8 @@ class ModernApproach {
             }
             await processWeather()
         }
+        // Call the synchronous function
+        syncFunction()
     }
     func randomD6() async -> Int {
         Int.random(in: 1...6)
@@ -74,4 +76,55 @@ class ModernApproach {
 
         print("Server response: \(await response)")
     }
+    func syncFunction() {
+        print("🚀 Calling async function from a sync function...")
+
+        Task {
+            let result = await asyncFunction()
+            print("✅ Async function result: \(result)")
+        }
+
+        print("🕒 Sync function continues execution...")
+    }
+
+    func asyncFunction() async -> String {
+        try? await Task.sleep(nanoseconds: 1_000_000_000) // Simulating delay
+        return "Hello from async!"
+    }
+    func countFavorites() async throws {
+        let favorites = try await decodeFavorites()
+        print("Downloaded \(favorites.count) favorites.")
+    }
+    func decodeFavorites() async throws -> [Int] {
+        let data = try await loadFavorites()
+        return try JSONDecoder().decode([Int].self, from: data)
+    }
+    func loadFavorites() async throws -> Data {
+        let url = URL(string: "https://hws.dev/user-favorites.json")!
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return data
+    }
+}
+
+extension URLSession {
+    static let noCacheSession: URLSession = {
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        return URLSession(configuration: config)
+    }()
+}
+struct RemoteFile<T: Decodable> {
+    let url: URL
+    let type: T.Type
+    var contents: T? {
+        get async throws {
+            let (data,_) = try await URLSession.noCacheSession.data(from: url)
+            return try JSONDecoder().decode(T.self, from: data)
+        }
+    }
+}
+struct Message: Decodable, Identifiable {
+    let id: Int
+    var user: String
+    var text: String
 }
