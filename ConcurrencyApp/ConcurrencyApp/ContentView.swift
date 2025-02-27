@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     init() {
-        let _ = QueueExample()
+        let _ = ModernApproach()
     }
     var body: some View {
         VStack {
